@@ -5,7 +5,7 @@ import javax.swing.*; //for swing GUI stuff
 
 public class Screen<JContentPane> extends JFrame {
 
-    private JLabel inputL;
+    private JLabel instructions;
 
     private JTextField inputTF;
 
@@ -46,8 +46,8 @@ public class Screen<JContentPane> extends JFrame {
         welcomeL.setFont(new Font("Serif",Font.PLAIN,20));
         welcomeL.setVisible(false);
 
-        inputL = makeLabel(275, 115, 300, 40, "Write 'Help' message here:", Color.MAGENTA);
-        inputL.setVisible(false);
+        instructions = makeLabel(275, 115, 300, 40, "Write 'Help' message here:", Color.MAGENTA);
+        instructions.setVisible(false);
 
         inputTF = makeTextField(200, 150, 300, 30, Color.BLACK);
         inputTF.setVisible(false);
@@ -85,7 +85,7 @@ public class Screen<JContentPane> extends JFrame {
 
     private void changeColor() {
         myCP.setBackground(Color.DARK_GRAY);
-        inputL.setForeground(Color.BLACK);
+        instructions.setForeground(Color.BLACK);
 
         inputTF.setForeground(Color.BLACK);
 
@@ -124,7 +124,7 @@ public class Screen<JContentPane> extends JFrame {
     public void newMessage() {
         welcomeL.setVisible(false);
         inputTF.setVisible(true);
-        inputL.setVisible(true);
+        instructions.setVisible(true);
         inputB.setVisible(true);
         messageB.setVisible(false);
         messageL.setVisible(false);
@@ -138,7 +138,7 @@ public class Screen<JContentPane> extends JFrame {
     public void back() {
         if (inputTF.isVisible()) {
             inputTF.setVisible(false);
-            inputL.setVisible(false);
+            instructions.setVisible(false);
             inputB.setVisible(false);
             messageB.setVisible(true);
             clickL.setVisible(true);
@@ -153,7 +153,7 @@ public class Screen<JContentPane> extends JFrame {
     public void saveMessage() {
         helpMessage = inputTF.getText();
         inputTF.setVisible(false);
-        inputL.setVisible(false);
+        instructions.setVisible(false);
         inputB.setVisible(false);
         messageB.setVisible(true);
         messageB.setEnabled(true);
