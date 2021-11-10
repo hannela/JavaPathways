@@ -9,7 +9,7 @@ public class Screen<JContentPane> extends JFrame {
 
     private JTextField inputTF;
 
-    private JButton inputB;
+    private JButton saveButton;
 
     private String helpMessage;
 
@@ -52,17 +52,17 @@ public class Screen<JContentPane> extends JFrame {
         inputTF = makeTextField(200, 150, 300, 30, Color.BLACK);
         inputTF.setVisible(false);
 
-        inputB = makeButton(515, 150, 55, 30, "Save", Color.MAGENTA,
+        saveButton = makeButton(515, 150, 70, 30, "Save", Color.MAGENTA,
                 (ActionEvent e) -> saveMessage());
-        inputB.setVisible(false);
+        saveButton.setVisible(false);
 
         messageB = makeButton(300, 200, 100, 40, "Help Message", Color.MAGENTA,
                 (ActionEvent e) -> displayMessage());
 
-        newMessageB = makeButton(490, 450, 190, 30, "Write New Message", Color.MAGENTA,
+        newMessageB = makeButton(490, 400, 190, 30, "Write New Message", Color.MAGENTA,
                 (ActionEvent e) -> newMessage());
 
-        backB = makeButton(490, 400, 190, 30, "<- Back   ", Color.MAGENTA,
+        backB = makeButton(490, 450, 190, 30, "<- Back   ", Color.MAGENTA,
                 (ActionEvent e) -> back());
         backB.setVisible(false);
 
@@ -71,7 +71,7 @@ public class Screen<JContentPane> extends JFrame {
         messageL.setVisible(false);
 
 
-        colorMode = makeButton(490, 400, 190, 30, "dark mode", Color.DARK_GRAY,
+        colorMode = makeButton(490, 350, 190, 30, "dark mode", Color.DARK_GRAY,
                 (ActionEvent e) -> changeColor());
         setVisible(true);
 
@@ -89,7 +89,7 @@ public class Screen<JContentPane> extends JFrame {
 
         inputTF.setForeground(Color.BLACK);
 
-        inputB.setForeground(Color.BLACK);
+        saveButton.setForeground(Color.BLACK);
 
         messageL.setForeground(Color.BLACK);
 
@@ -125,7 +125,7 @@ public class Screen<JContentPane> extends JFrame {
         welcomeL.setVisible(false);
         inputTF.setVisible(true);
         instructions.setVisible(true);
-        inputB.setVisible(true);
+        saveButton.setVisible(true);
         messageB.setVisible(false);
         messageL.setVisible(false);
         newMessageB.setVisible(false);
@@ -139,7 +139,7 @@ public class Screen<JContentPane> extends JFrame {
         if (inputTF.isVisible()) {
             inputTF.setVisible(false);
             instructions.setVisible(false);
-            inputB.setVisible(false);
+            saveButton.setVisible(false);
             messageB.setVisible(true);
             clickL.setVisible(true);
             newMessageB.setVisible(true);
@@ -154,7 +154,7 @@ public class Screen<JContentPane> extends JFrame {
         helpMessage = inputTF.getText();
         inputTF.setVisible(false);
         instructions.setVisible(false);
-        inputB.setVisible(false);
+        saveButton.setVisible(false);
         messageB.setVisible(true);
         messageB.setEnabled(true);
         newMessageB.setVisible(true);
