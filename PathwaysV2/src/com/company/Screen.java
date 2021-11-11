@@ -7,27 +7,46 @@ public class Screen<JContentPane> extends JFrame {
 
     private JLabel instructions;
 
+    //help message input field
     private JTextField inputTF;
 
     private JButton saveButton;
 
     private String helpMessage;
 
+    //displays written in message
     private JLabel messageL;
 
+    //welcome info/how to
     private JLabel welcomeL;
 
+    //direction to click help button to display user message
     private JLabel clickL;
 
+    //button to display user message
     private JButton messageB;
 
+    //button to write in user help message
     private JButton newMessageB;
 
+    //back button
     private JButton backB;
-
+    
     private Container myCP;
 
-    private JButton colorMode;
+    private JButton darkMode;
+
+    private JButton lightMode;
+
+    // new added
+    //constants that can be called
+    private static Color darkModeBackground = Color.DARK_GRAY;
+
+    private static Color darkModeText = Color.BLACK;
+
+    private static Color lightModeBackground = new Color(235, 200, 255);
+
+    private static Color lightModeText = Color.MAGENTA;
 
     public Screen() {
         super("Java Pathways: Help Message");
@@ -35,45 +54,50 @@ public class Screen<JContentPane> extends JFrame {
         setLocation(100, 100);
         myCP = getContentPane();
         myCP.setLayout(null);//there is no layout manager
-        myCP.setBackground(new Color(235, 200, 255));
+        //myCP.setBackground(new Color(235, 200, 255));
+        myCP.setBackground(lightModeBackground);
 
-        clickL = makeLabel(290, 150, 190, 30, "Click 'Help' button!", Color.MAGENTA);
+        clickL = makeLabel(290, 150, 190, 30, "Click 'Help' button!", lightModeText);
 
         welcomeL = makeLabel(50, 50, 600, 200, "<html><p>Welcome to Pathways!<br/> " +
                 "You can customize your 'Help' button message to fit your needs.<br/> " +
-                "Click the 'Write New Message' button to customize your HELP message.</p></html>", Color.MAGENTA);
+                "Click the 'Write New Message' button to customize your HELP message.</p></html>", lightModeText);
         welcomeL.setHorizontalAlignment(JLabel.CENTER);
         welcomeL.setFont(new Font("Serif",Font.PLAIN,20));
         welcomeL.setVisible(false);
 
-        instructions = makeLabel(275, 115, 300, 40, "Write 'Help' message here:", Color.MAGENTA);
+        instructions = makeLabel(275, 115, 300, 40, "Write 'Help' message here:", lightModeText);
         instructions.setVisible(false);
 
-        inputTF = makeTextField(200, 150, 300, 30, Color.BLACK);
+        inputTF = makeTextField(200, 150, 300, 30, darkModeText);
         inputTF.setVisible(false);
 
-        saveButton = makeButton(515, 150, 70, 30, "Save", Color.MAGENTA,
+        saveButton = makeButton(515, 150, 70, 30, "Save", lightModeText,
                 (ActionEvent e) -> saveMessage());
         saveButton.setVisible(false);
 
-        messageB = makeButton(300, 200, 100, 40, "Help Message", Color.MAGENTA,
+        messageB = makeButton(250, 200, 200, 40, "Help Message", lightModeText,
                 (ActionEvent e) -> displayMessage());
 
-        newMessageB = makeButton(490, 400, 190, 30, "Write New Message", Color.MAGENTA,
+        newMessageB = makeButton(490, 400, 190, 30, "Write New Message", lightModeText,
                 (ActionEvent e) -> newMessage());
 
-        backB = makeButton(490, 450, 190, 30, "<- Back   ", Color.MAGENTA,
+        backB = makeButton(490, 450, 190, 30, "<- Back   ", lightModeText,
                 (ActionEvent e) -> back());
         backB.setVisible(false);
 
-        messageL = makeLabel(50, 50, 600, 345, "", Color.BLACK);
+        messageL = makeLabel(50, 50, 600, 345, "", darkModeText);
         messageL.setHorizontalAlignment(JLabel.CENTER);
         messageL.setVisible(false);
 
 
-        colorMode = makeButton(490, 350, 190, 30, "dark mode", Color.DARK_GRAY,
-                (ActionEvent e) -> changeColor());
+        darkMode = makeButton(490, 350, 190, 30, "dark mode", darkModeBackground,
+                (ActionEvent e) -> darkMode());
         setVisible(true);
+
+        lightMode = makeButton(490, 350, 190, 30, "light mode", lightModeText,
+                (ActionEvent e) -> lightMode());
+        setVisible(false);
 
 
         addWindowListener(new WindowAdapter() {
@@ -83,27 +107,55 @@ public class Screen<JContentPane> extends JFrame {
         });
     }
 
-    private void changeColor() {
-        myCP.setBackground(Color.DARK_GRAY);
-        instructions.setForeground(Color.BLACK);
+    private void darkMode() {
+        lightMode.setVisible(true);
+        darkMode.setVisible(false);
 
-        inputTF.setForeground(Color.BLACK);
+        myCP.setBackground(darkModeBackground);
+        instructions.setForeground(darkModeText);
 
-        saveButton.setForeground(Color.BLACK);
+        inputTF.setForeground(darkModeText);
 
-        messageL.setForeground(Color.BLACK);
+        saveButton.setForeground(darkModeText);
 
-        welcomeL.setForeground(Color.BLACK);
+        messageL.setForeground(darkModeText);
 
-        clickL.setForeground(Color.BLACK);
+        welcomeL.setForeground(darkModeText);
 
-        messageB.setForeground(Color.BLACK);
+        clickL.setForeground(darkModeText);
 
-        newMessageB.setForeground(Color.BLACK);
+        messageB.setForeground(darkModeText);
 
-        backB.setForeground(Color.BLACK);
+        newMessageB.setForeground(darkModeText);
 
-        myCP.setForeground(Color.BLACK);
+        backB.setForeground(darkModeText);
+
+        myCP.setForeground(darkModeText);
+    }
+
+    private void lightMode() {
+        lightMode.setVisible(false);
+        darkMode.setVisible(true);
+        myCP.setBackground(lightModeBackground);
+        instructions.setForeground(lightModeText);
+
+        inputTF.setForeground(lightModeText);
+
+        saveButton.setForeground(lightModeText);
+
+        messageL.setForeground(lightModeText);
+
+        welcomeL.setForeground(lightModeText);
+
+        clickL.setForeground(lightModeText);
+
+        messageB.setForeground(lightModeText);
+
+        newMessageB.setForeground(lightModeText);
+
+        backB.setForeground(lightModeText);
+
+        myCP.setForeground(lightModeText);
     }
 
 
