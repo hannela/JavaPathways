@@ -1,6 +1,7 @@
 package com.company;
 import java.awt.*; // for original GUI stuff
 import java.awt.event.*; // for event handling
+import java.io.*;
 import javax.swing.*; //for swing GUI stuff
 
 public class Screen<JContentPane> extends JFrame {
@@ -37,6 +38,8 @@ public class Screen<JContentPane> extends JFrame {
     private JButton darkMode;
 
     private JButton lightMode;
+
+    private JButton reminders;
 
     // new added
     //constants that can be called
@@ -99,12 +102,18 @@ public class Screen<JContentPane> extends JFrame {
                 (ActionEvent e) -> lightMode());
         setVisible(false);
 
+        reminders = makeButton(250, 450, 190, 30, "Reminders  ", lightModeText,
+                (ActionEvent e) -> makeReminder());
+        reminders.setVisible(true);
 
         addWindowListener(new WindowAdapter() {
             public void windowClosing(WindowEvent e) {
                 System.exit(0);
             }//windowClosing
         });
+    }
+
+    private void makeReminder() {
     }
 
     private void darkMode() {
@@ -245,4 +254,6 @@ public class Screen<JContentPane> extends JFrame {
         myCP.add(toReturn);
         return toReturn;
     }//makeTextField
+
+
 }
