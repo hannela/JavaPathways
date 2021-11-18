@@ -1,7 +1,6 @@
 package com.company;
 import java.awt.*; // for original GUI stuff
 import java.awt.event.*; // for event handling
-import java.io.*;
 import javax.swing.*; //for swing GUI stuff
 
 public class Screen<JContentPane> extends JFrame {
@@ -35,11 +34,15 @@ public class Screen<JContentPane> extends JFrame {
     
     private Container myCP;
 
-    private JButton darkMode;
+    private JButton darkModeButton;
 
-    private JButton lightMode;
+    private JButton lightModeButton;
 
     private JButton reminders;
+
+    private boolean lightModeFlag = true;
+
+
 
     // new added
     //constants that can be called
@@ -51,6 +54,10 @@ public class Screen<JContentPane> extends JFrame {
 
     private static Color lightModeText = Color.MAGENTA;
 
+    private JLabel reminderInstructions;
+
+    private static String reminderInstructionsString = "Enter a new reminder.";
+
     public Screen() {
         super("Java Pathways: Help Message");
         setSize(700, 550);
@@ -61,6 +68,10 @@ public class Screen<JContentPane> extends JFrame {
         myCP.setBackground(lightModeBackground);
 
         clickL = makeLabel(290, 150, 190, 30, "Click 'Help' button!", lightModeText);
+
+        reminderInstructions = makeLabel(50, 50, 600, 345, reminderInstructionsString, darkModeText);
+        reminderInstructions.setHorizontalAlignment(JLabel.CENTER);
+        reminderInstructions.setVisible(false);
 
         welcomeL = makeLabel(50, 50, 600, 200, "<html><p>Welcome to Pathways!<br/> " +
                 "You can customize your 'Help' button message to fit your needs.<br/> " +
@@ -94,15 +105,15 @@ public class Screen<JContentPane> extends JFrame {
         messageL.setVisible(false);
 
 
-        darkMode = makeButton(490, 350, 190, 30, "dark mode", darkModeBackground,
+        darkModeButton = makeButton(490, 350, 190, 30, "dark mode", darkModeBackground,
                 (ActionEvent e) -> darkMode());
         setVisible(true);
 
-        lightMode = makeButton(490, 350, 190, 30, "light mode", lightModeText,
+        lightModeButton = makeButton(490, 350, 190, 30, "light mode", lightModeText,
                 (ActionEvent e) -> lightMode());
         setVisible(false);
 
-        reminders = makeButton(250, 450, 190, 30, "Reminders  ", lightModeText,
+        reminders = makeButton(250, 450, 190, 30, "Create New Reminder", lightModeText,
                 (ActionEvent e) -> makeReminder());
         reminders.setVisible(true);
 
@@ -114,11 +125,19 @@ public class Screen<JContentPane> extends JFrame {
     }
 
     private void makeReminder() {
+        blankScreen();
+        inputTF.setVisible(true);
+        saveButton.setVisible(true);
+        reminderInstructions.setVisible(true);
+        inputTF.setText("");
+        backB.setVisible(true);
     }
 
     private void darkMode() {
-        lightMode.setVisible(true);
-        darkMode.setVisible(false);
+
+        lightModeFlag = false;
+        lightModeButton.setVisible(true);
+        darkModeButton.setVisible(false);
 
         myCP.setBackground(darkModeBackground);
         instructions.setForeground(darkModeText);
@@ -143,8 +162,9 @@ public class Screen<JContentPane> extends JFrame {
     }
 
     private void lightMode() {
-        lightMode.setVisible(false);
-        darkMode.setVisible(true);
+        lightModeFlag = true;
+        lightModeButton.setVisible(false);
+        darkModeButton.setVisible(true);
         myCP.setBackground(lightModeBackground);
         instructions.setForeground(lightModeText);
 
@@ -204,6 +224,7 @@ public class Screen<JContentPane> extends JFrame {
             messageB.setVisible(true);
             clickL.setVisible(true);
             newMessageB.setVisible(true);
+            reminderInstructions.setVisible(false);
         } else {
             messageB.setVisible(true);
             clickL.setVisible(true);
@@ -255,5 +276,19 @@ public class Screen<JContentPane> extends JFrame {
         return toReturn;
     }//makeTextField
 
+    private void blankScreen() {
 
+        for (Component child : myCP.getComponents()) {
+            child.setVisible(false);
+        }
+
+        if (lightModeFlag){
+            lightModeButton.setVisible(true);
+        }
+        else{
+            darkModeButton.setVisible(true);
+        }
+
+
+    }
 }
