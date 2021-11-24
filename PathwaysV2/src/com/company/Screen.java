@@ -1,4 +1,5 @@
 package com.company;
+
 import java.awt.*; // for original GUI stuff
 import java.awt.event.*; // for event handling
 import javax.swing.*; //for swing GUI stuff
@@ -24,7 +25,7 @@ public class Screen<JContentPane> extends JFrame {
     private JLabel clickL;
 
     //button to display user message
-    private JButton messageB;
+    public static JButton messageB;
 
     //button to write in user help message
     private JButton newMessageB;
@@ -106,7 +107,7 @@ public class Screen<JContentPane> extends JFrame {
 
 
         darkModeButton = makeButton(490, 350, 190, 30, "dark mode", darkModeBackground,
-                (ActionEvent e) -> darkMode());
+                (ActionEvent e) -> darkMode()); //ColorModes.switchColorsDark(this));
         setVisible(true);
 
         lightModeButton = makeButton(490, 350, 190, 30, "light mode", lightModeText,
@@ -133,7 +134,7 @@ public class Screen<JContentPane> extends JFrame {
         backB.setVisible(true);
     }
 
-    private void darkMode() {
+    public void darkMode() {
 
         lightModeFlag = false;
         lightModeButton.setVisible(true);
@@ -144,7 +145,7 @@ public class Screen<JContentPane> extends JFrame {
 
         inputTF.setForeground(darkModeText);
 
-        saveButton.setForeground(darkModeText);
+        //saveButton.setForeground(darkModeText);
 
         messageL.setForeground(darkModeText);
 
@@ -170,7 +171,7 @@ public class Screen<JContentPane> extends JFrame {
 
         inputTF.setForeground(lightModeText);
 
-        saveButton.setForeground(lightModeText);
+        //saveButton.setForeground(lightModeText);
 
         messageL.setForeground(lightModeText);
 
@@ -206,7 +207,7 @@ public class Screen<JContentPane> extends JFrame {
         welcomeL.setVisible(false);
         inputTF.setVisible(true);
         instructions.setVisible(true);
-        saveButton.setVisible(true);
+        //saveButton.setVisible(true);
         messageB.setVisible(false);
         messageL.setVisible(false);
         newMessageB.setVisible(false);
@@ -220,7 +221,7 @@ public class Screen<JContentPane> extends JFrame {
         if (inputTF.isVisible()) {
             inputTF.setVisible(false);
             instructions.setVisible(false);
-            saveButton.setVisible(false);
+            //saveButton.setVisible(false);
             messageB.setVisible(true);
             clickL.setVisible(true);
             newMessageB.setVisible(true);
@@ -236,7 +237,7 @@ public class Screen<JContentPane> extends JFrame {
         helpMessage = inputTF.getText();
         inputTF.setVisible(false);
         instructions.setVisible(false);
-        saveButton.setVisible(false);
+        //saveButton.setVisible(false);
         messageB.setVisible(true);
         messageB.setEnabled(true);
         newMessageB.setVisible(true);
@@ -244,14 +245,14 @@ public class Screen<JContentPane> extends JFrame {
     }
 
 
-    private JButton makeButton(int theX, int theY, int theWidth,
+    public JButton makeButton(int theX, int theY, int theWidth,
                                int theHeight, String theText, Color theForeground,
                                ActionListener theHandler) {
         JButton toReturn = new JButton(theText);
         toReturn.setSize(theWidth, theHeight);
         toReturn.setLocation(theX, theY);
         toReturn.setForeground(theForeground);
-        myCP.add(toReturn);
+         myCP.add(toReturn);
         toReturn.addActionListener(theHandler);
         return toReturn;
     }//makeButton

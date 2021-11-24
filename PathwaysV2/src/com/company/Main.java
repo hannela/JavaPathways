@@ -6,6 +6,10 @@ import java.util.*;
 public class Main {
     public static void main(String[] args){
         Screen test = new Screen();
+        JFrame alsoTest = new MainFrame();
+
+        // set test visible to see old.
+        // set alsoTest visible to see new.
         test.setVisible(true);
         reminders("reminder");
     }
