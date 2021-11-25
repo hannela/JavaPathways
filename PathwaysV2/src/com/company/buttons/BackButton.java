@@ -16,7 +16,7 @@ public class BackButton extends JButton {
         this.setLocation(490, 450);
         this.setForeground(ColorModes.lightModeText);
         // this.addActionListener((ActionEvent e) -> back());
-        this.setVisible(false);
+        this.setVisible(true);
     }
 
     // This creates an instance of the button.

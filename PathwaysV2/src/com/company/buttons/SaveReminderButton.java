@@ -15,7 +15,7 @@ public class SaveReminderButton extends JButton {
         this.setLocation(515, 150);
         this.setForeground(ColorModes.lightModeText);
         this.addActionListener((ActionEvent e) -> saveMessage());
-        this.setVisible(false);
+        this.setVisible(true);
     }
 
     // This creates an instance of the button.

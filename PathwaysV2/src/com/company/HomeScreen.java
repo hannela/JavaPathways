@@ -1,37 +1,39 @@
 package com.company;
 import com.company.buttons.BackButton;
 import com.company.buttons.SaveReminderButton;
+import com.company.buttons.SetNewMessageButton;
+import com.company.utilities.ColorModes;
 import com.company.utilities.ScreenUtilities;
 
 import javax.swing.*;
 
-import static com.company.MainFrame.mainPanel;
-
 public class HomeScreen extends JPanel {
 
-    // This creates an instance of the button.
+    // This creates an instance of the panel.
     private static HomeScreen instance = new HomeScreen();
 
-    // The method to get an instance (the copy) of the button.
-    // All instances point to the same copy of the button.
-    // If you change the button on one screen, it will affect it on all screens.
-    // Ex. if you setVisible(true), the button will remain visible on all screens until turned off.
+    // The method to get an instance (the copy) of the panel.
+    // All instances point to the same copy of the panel.
     public static HomeScreen getHomeScreenInstance() {
         return instance;
     }
 
     JButton saveReminderButton = SaveReminderButton.getSaveReminderButtonInstance();
     JButton backButton = BackButton.getBackButtonInstance();
+    JButton setNewMessageButton = SetNewMessageButton.getSetNewMessageButtonInstance();
 
     private HomeScreen() {
-        ScreenUtilities.setAllInvisible(mainPanel);
-        mainPanel.add(this);
+        this.setSize(700, 550);
+        this.setLayout(null); // No layout manager
+        this.setOpaque(false); // makes panel transparent
+
+
+
         this.add(saveReminderButton);
-        saveReminderButton.setVisible(true);
+        this.add(setNewMessageButton);
 
         this.add(backButton);
         BackButton.setBackButtonAction("TestExit");
-
     }
 
     public JLabel instructionsLabel;
@@ -41,7 +43,6 @@ public class HomeScreen extends JPanel {
     public JButton writeNewMessageButton;
     public JButton darkModeButton;
 
-    public JButton messageB = Screen.messageB;
 
 
 
