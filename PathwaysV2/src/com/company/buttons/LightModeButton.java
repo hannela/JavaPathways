@@ -7,7 +7,7 @@ import java.awt.event.ActionEvent;
 
 public class LightModeButton extends JButton {
     private LightModeButton(){
-        this.setText("light mode");
+        this.setText("Light Mode");
         this.setSize(190, 30);
         this.setLocation(490, 350);
         this.setForeground(ColorModes.lightModeText);

@@ -1,5 +1,7 @@
 package com.company;
 import com.company.buttons.*;
+import com.company.utilities.ColorModes;
+import com.company.utilities.LabelFactory;
 
 import javax.swing.*;
 
@@ -14,20 +16,28 @@ public class HomeScreen extends JPanel {
         return instance;
     }
 
-    JButton saveReminderButton = SaveReminderButton.getSaveReminderButtonInstance();
     JButton backButton = BackButton.getBackButtonInstance();
     JButton setNewMessageButton = SetNewMessageButton.getSetNewMessageButtonInstance();
     JButton lightModeButton = LightModeButton.getLightModeButtonInstance();
     JButton darkModeButton = DarkModeButton.getDarkModeButtonInstance();
+    JButton displayHelpMessageButton = DisplayHelpMessageButton.getDisplayHelpMessageButtonInstance();
+    JButton addReminderButton = AddReminderButton.getAddReminderButtonInstance();
+
+    JLabel welcomeInstructionsText;
 
     private HomeScreen() {
         this.setSize(700, 550);
         this.setLayout(null); // No layout manager
         this.setOpaque(false); // makes panel transparent
 
-        // I don't think the home screen needs a saveReminderButton
-        //this.add(saveReminderButton);
+        welcomeInstructionsText = LabelFactory.getLabel(600, 200, 50, 50, "<html><p>Welcome to Pathways!<br/> " +
+                "You can customize your 'Help' button message to fit your needs.<br/> " +
+                "Click the 'Write New Message' button to customize your HELP message.</p></html>", ColorModes.lightModeText);
+
+        this.add(welcomeInstructionsText);
         this.add(setNewMessageButton);
+        this.add(addReminderButton);
+        this.add(displayHelpMessageButton);
 
         this.add(backButton);
         BackButton.setBackButtonAction("TestExit");
@@ -37,14 +47,5 @@ public class HomeScreen extends JPanel {
 
         this.add(darkModeButton);
     }
-
-    public JLabel instructionsLabel;
-
-    public JButton helpMessageButton;
-    public JButton createNewReminderButton;
-
-
-
-
 
 }
