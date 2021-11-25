@@ -1,9 +1,10 @@
 package com.company.utilities;
 
+import com.company.buttons.DarkModeButton;
+import com.company.buttons.LightModeButton;
+
 import javax.swing.*;
 import java.awt.*;
-import java.awt.event.ActionEvent;
-import java.awt.event.ActionListener;
 
 public class ColorModes {
     private ColorModes() { }
@@ -15,7 +16,7 @@ public class ColorModes {
 
     public static Boolean usingLightMode = true;
 
-    public static void setBackgroundColor(JPanel panel) {
+    public static void switchBackgroundColor(JPanel panel) {
         if (usingLightMode) {
             panel.setBackground(ColorModes.lightModeBackground);
         } else {
@@ -25,21 +26,22 @@ public class ColorModes {
 
     // I think it's possible to build a method in here where you pass "this"
     // when calling it on a JPanel, and it can find all the components and swap their colors out.
-    public static void switchColorsDark(JPanel currentPanel) {
-//        lightModeButton.setVisible(true);
-//        darkModeButton.setVisible(false);
-
-        currentPanel.setBackground(darkModeBackground);
-
-        for (Component child : currentPanel.getComponents()) {
-            child.setForeground(darkModeText);
+    public static void switchMode(JPanel currentPanel) {
+        LightModeButton.getLightModeButtonInstance().setVisible(!usingLightMode);
+        DarkModeButton.getDarkModeButtonInstance().setVisible(usingLightMode);
+        if(usingLightMode){     // switch to dark mode
+            usingLightMode = false;
+            currentPanel.setBackground(darkModeBackground);     // I thought all the panels except main were supposed to be clear?
+            for (Component child : currentPanel.getComponents()) {
+                child.setForeground(darkModeText);
+            }
         }
-
-//        if (lightModeFlag){
-//            lightModeButton.setVisible(true);
-//        }
-//        else{
-//            darkModeButton.setVisible(true);
-//        }
+        else{
+            usingLightMode = true;
+            currentPanel.setBackground(lightModeBackground);     // I thought all the panels except main were supposed to be clear?
+            for (Component child : currentPanel.getComponents()) {
+                child.setForeground(lightModeText);
+            }
+        }
     }
 }

@@ -1,9 +1,5 @@
 package com.company;
-import com.company.buttons.BackButton;
-import com.company.buttons.SaveReminderButton;
-import com.company.buttons.SetNewMessageButton;
-import com.company.utilities.ColorModes;
-import com.company.utilities.ScreenUtilities;
+import com.company.buttons.*;
 
 import javax.swing.*;
 
@@ -21,27 +17,31 @@ public class HomeScreen extends JPanel {
     JButton saveReminderButton = SaveReminderButton.getSaveReminderButtonInstance();
     JButton backButton = BackButton.getBackButtonInstance();
     JButton setNewMessageButton = SetNewMessageButton.getSetNewMessageButtonInstance();
+    JButton lightModeButton = LightModeButton.getLightModeButtonInstance();
+    JButton darkModeButton = DarkModeButton.getDarkModeButtonInstance();
 
     private HomeScreen() {
         this.setSize(700, 550);
         this.setLayout(null); // No layout manager
         this.setOpaque(false); // makes panel transparent
 
-
-
-        this.add(saveReminderButton);
+        // I don't think the home screen needs a saveReminderButton
+        //this.add(saveReminderButton);
         this.add(setNewMessageButton);
 
         this.add(backButton);
         BackButton.setBackButtonAction("TestExit");
+
+        this.add(lightModeButton);
+        lightModeButton.setVisible(false);
+
+        this.add(darkModeButton);
     }
 
     public JLabel instructionsLabel;
 
     public JButton helpMessageButton;
     public JButton createNewReminderButton;
-    public JButton writeNewMessageButton;
-    public JButton darkModeButton;
 
 
 

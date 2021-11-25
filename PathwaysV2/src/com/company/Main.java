@@ -10,8 +10,9 @@ public class Main {
 
         // set test visible to see old.
         // set alsoTest visible to see new.
-        test.setVisible(true);
-        reminders("reminder");
+        //test.setVisible(true);
+        //reminders("reminder");
+        alsoTest.setVisible(true);
     }
 
     private static void reminders(String reminder) {

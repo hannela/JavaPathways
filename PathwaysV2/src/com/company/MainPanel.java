@@ -25,7 +25,7 @@ public class MainPanel extends JPanel {
         // We set the background color in the parent panel,
         // and set the other panels transparent. (this.setOpaque(false);)
         // This means we only have to change the background on one panel.
-        ColorModes.setBackgroundColor(this);
+        ColorModes.switchBackgroundColor(this);
 
         // default starting screen
         this.add(HomeScreen.getHomeScreenInstance());

@@ -8,7 +8,6 @@ import java.awt.event.ActionEvent;
 // Extends JButton tells the program that this is a JButton with a customized class name.
 public class SetNewMessageButton extends JButton {
 
-
     // Build the button in the constructor.
     private SetNewMessageButton() {
         this.setText("Write New Message");

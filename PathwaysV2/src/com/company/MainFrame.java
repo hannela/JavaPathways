@@ -18,7 +18,8 @@ public class MainFrame extends JFrame {
         mainPanel.setSize(700, 550);
         this.add(mainPanel);
 
-        mainPanel.add(HomeScreen.getHomeScreenInstance());
+        // don't need this line bc it's part of the mainPanel constructor
+        //mainPanel.add(HomeScreen.getHomeScreenInstance());
 
 
 
