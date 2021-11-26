@@ -9,7 +9,7 @@ public class DarkModeButton extends JButton {
     private DarkModeButton(){
         this.setText("Dark Mode");
         this.setSize(190, 30);
-        this.setLocation(490, 350);
+        this.setLocation(490, 400);
         this.setForeground(ColorModes.darkModeText);
         this.setVisible(true);
         this.addActionListener((ActionEvent e) -> darkMode());

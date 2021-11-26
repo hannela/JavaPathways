@@ -11,7 +11,7 @@ public class BackButton extends JButton {
 
     // Build the button in the constructor.
     private BackButton() {
-        this.setText("Back");
+        this.setText("<- Back");
         this.setSize(190, 30);
         this.setLocation(490, 450);
         this.setForeground(ColorModes.lightModeText);

@@ -9,9 +9,9 @@ public class LightModeButton extends JButton {
     private LightModeButton(){
         this.setText("Light Mode");
         this.setSize(190, 30);
-        this.setLocation(490, 350);
+        this.setLocation(490, 400);
         this.setForeground(ColorModes.lightModeText);
-        this.setVisible(true);
+        this.setVisible(false);
         this.addActionListener((ActionEvent e) -> lightMode());
     }
 

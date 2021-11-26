@@ -3,42 +3,42 @@ package com.company.screens;
 import com.company.buttons.BackButton;
 import com.company.buttons.DarkModeButton;
 import com.company.buttons.LightModeButton;
-import com.company.buttons.SaveHelpMessageButton;
-import com.company.textfields.AddHelpMessageTextField;
+import com.company.buttons.SaveReminderButton;
+import com.company.textfields.AddReminderTextField;
 import com.company.utilities.ColorModes;
 import com.company.utilities.LabelFactory;
 
 import javax.swing.*;
 
-public class AddHelpMessageScreen extends JPanel {
+public class AddReminderScreen extends JPanel {
     // This creates an instance of the panel.
-    private static AddHelpMessageScreen instance = new AddHelpMessageScreen();
+    private static AddReminderScreen instance = new AddReminderScreen();
 
     // The method to get an instance (the copy) of the panel.
     // All instances point to the same copy of the panel.
-    public static AddHelpMessageScreen getAddHelpMessageScreenInstance() {
+    public static AddReminderScreen getAddReminderScreenInstance() {
         return instance;
     }
 
-    JLabel addHelpMessageInstructionsText;
-    JTextField addHelpMessageTextField = AddHelpMessageTextField.getAddHelpMessageTextFieldInstance();
-    JButton saveHelpMessageButton = SaveHelpMessageButton.getSaveHelpMessageButtonInstance();
+    JLabel addReminderInstructionsText;
+    JTextField addReminderTextField = AddReminderTextField.getAddReminderTextFieldInstance();
+    JButton saveReminderButton = SaveReminderButton.getSaveReminderButtonInstance();
     JButton backButton = BackButton.getBackButtonInstance();
     JButton darkModeButton = DarkModeButton.getDarkModeButtonInstance();
     JButton lightModeButton = LightModeButton.getLightModeButtonInstance();
 
     // private constructor
-    private AddHelpMessageScreen(){
+    private AddReminderScreen(){
         this.setSize(700, 550);
         this.setLayout(null); // No layout manager
         this.setOpaque(false); // makes panel transparent
 
-        addHelpMessageInstructionsText = LabelFactory.getLabel(300, 40, 275, 115, "Write 'Help' message here:", ColorModes.lightModeText);
-        this.add(addHelpMessageInstructionsText);
+        addReminderInstructionsText = LabelFactory.getLabel(300, 40, 275, 115, "Add new reminder here:", ColorModes.lightModeText);
+        this.add(addReminderInstructionsText);
 
         this.add(backButton);
-        this.add(addHelpMessageTextField);
-        this.add(saveHelpMessageButton);
+        this.add(addReminderTextField);
+        this.add(saveReminderButton);
         this.add(lightModeButton);
         this.add(darkModeButton);
     }

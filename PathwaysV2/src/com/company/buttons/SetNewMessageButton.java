@@ -12,7 +12,7 @@ public class SetNewMessageButton extends JButton {
     private SetNewMessageButton() {
         this.setText("Write New Message");
         this.setSize(190, 30);
-        this.setLocation(490, 400);
+        this.setLocation(490, 350);
         this.setForeground(ColorModes.lightModeText);
         this.addActionListener((ActionEvent e) -> newMessage());
         this.setVisible(true);

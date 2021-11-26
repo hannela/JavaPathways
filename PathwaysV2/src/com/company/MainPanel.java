@@ -1,5 +1,7 @@
 package com.company;
 
+import com.company.screens.AddHelpMessageScreen;
+import com.company.screens.AddReminderScreen;
 import com.company.screens.HomeScreen;
 import com.company.utilities.ColorModes;
 
@@ -31,6 +33,9 @@ public class MainPanel extends JPanel {
         // default starting screen
         this.add(HomeScreen.getHomeScreenInstance());
 
+        //tests
+        //this.add(AddHelpMessageScreen.getAddHelpMessageScreenInstance());
+        //this.add(AddReminderScreen.getAddReminderScreenInstance());
 
     }
 }
