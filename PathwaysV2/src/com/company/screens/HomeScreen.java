@@ -1,4 +1,4 @@
-package com.company;
+package com.company.screens;
 import com.company.buttons.*;
 import com.company.utilities.ColorModes;
 import com.company.utilities.LabelFactory;
