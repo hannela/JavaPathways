@@ -1,5 +1,6 @@
 package com.company.screens;
 import com.company.buttons.*;
+import com.company.labels.HelpMessageLabel;
 import com.company.utilities.ColorModes;
 import com.company.utilities.LabelFactory;
 
@@ -25,6 +26,7 @@ public class HomeScreen extends JPanel {
 
     JLabel welcomeInstructionsText;
     JLabel clickHelpButtonInstructionsText; // becomes visible after help message is added and welcome instructions disappear
+    JLabel helpMessageLabel = HelpMessageLabel.getHelpMessageLabelInstance();
 
     private HomeScreen() {
         this.setSize(700, 550);
@@ -51,6 +53,11 @@ public class HomeScreen extends JPanel {
         lightModeButton.setVisible(false);
 
         this.add(darkModeButton);
+
+        this.add(helpMessageLabel);
+
+        helpMessageLabel.setVisible(false);
+
     }
 
 }

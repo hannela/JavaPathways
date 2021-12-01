@@ -1,5 +1,7 @@
 package com.company.utilities;
 
+import com.company.Main;
+import com.company.MainPanel;
 import com.company.buttons.DarkModeButton;
 import com.company.buttons.LightModeButton;
 
@@ -27,21 +29,22 @@ public class ColorModes {
     // I think it's possible to build a method in here where you pass "this"
     // when calling it on a JPanel, and it can find all the components and swap their colors out.
     public static void switchMode(JPanel currentPanel) {
-        LightModeButton.getLightModeButtonInstance().setVisible(!usingLightMode);
-        DarkModeButton.getDarkModeButtonInstance().setVisible(usingLightMode);
         if(usingLightMode){     // switch to dark mode
             usingLightMode = false;
-            currentPanel.setBackground(darkModeBackground);     // I thought all the panels except main were supposed to be clear?
+            MainPanel.getMainPanelInstance().setBackground(darkModeBackground);
             for (Component child : currentPanel.getComponents()) {
                 child.setForeground(darkModeText);
             }
         }
         else{
             usingLightMode = true;
-            currentPanel.setBackground(lightModeBackground);     // I thought all the panels except main were supposed to be clear?
+            MainPanel.getMainPanelInstance().setBackground(lightModeBackground);    // I thought all the panels except main were supposed to be clear?
             for (Component child : currentPanel.getComponents()) {
                 child.setForeground(lightModeText);
             }
         }
+
+        LightModeButton.getLightModeButtonInstance().setVisible(!usingLightMode);
+        DarkModeButton.getDarkModeButtonInstance().setVisible(usingLightMode);
     }
 }

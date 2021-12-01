@@ -1,5 +1,6 @@
 package com.company.buttons;
 
+import com.company.labels.HelpMessageLabel;
 import com.company.utilities.ColorModes;
 
 import javax.swing.*;
@@ -26,5 +27,9 @@ public class DisplayHelpMessageButton extends JButton {
     }
 
 
-    public void displayHelpMessage(){}
+    public void displayHelpMessage(){
+        this.setVisible(false);
+        HelpMessageLabel.getHelpMessageLabelInstance().setVisible(true);
+
+    }
 }

@@ -1,5 +1,7 @@
 package com.company.buttons;
 
+import com.company.labels.HelpMessageLabel;
+import com.company.textfields.AddHelpMessageTextField;
 import com.company.utilities.ColorModes;
 
 import javax.swing.*;
@@ -29,6 +31,6 @@ public class SaveHelpMessageButton extends JButton {
 
     // The method that the button implements
     public void saveHelpMessage() {
-
+        HelpMessageLabel.getHelpMessageLabelInstance().setText( AddHelpMessageTextField.getAddHelpMessageTextFieldInstance().getText());
     }
 }

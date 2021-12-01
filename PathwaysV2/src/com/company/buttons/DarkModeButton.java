@@ -7,12 +7,14 @@ import java.awt.event.ActionEvent;
 
 public class DarkModeButton extends JButton {
     private DarkModeButton(){
+
         this.setText("Dark Mode");
         this.setSize(190, 30);
         this.setLocation(490, 400);
         this.setForeground(ColorModes.darkModeText);
         this.setVisible(true);
-        this.addActionListener((ActionEvent e) -> darkMode());
+        this.addActionListener((ActionEvent e) -> darkMode((JPanel) this.getParent()));
+
     }
 
     private static DarkModeButton instance = new DarkModeButton();
@@ -21,5 +23,9 @@ public class DarkModeButton extends JButton {
         return instance;
     }
 
-    public void darkMode(){}
+
+    public void darkMode(JPanel currentPanel){
+        ColorModes.switchMode(currentPanel);
+
+    }
 }
