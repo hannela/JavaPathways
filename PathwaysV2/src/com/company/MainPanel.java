@@ -1,5 +1,7 @@
 package com.company;
 
+import com.company.buttons.DarkModeButton;
+import com.company.buttons.LightModeButton;
 import com.company.screens.AddHelpMessageScreen;
 import com.company.screens.AddReminderScreen;
 import com.company.screens.HomeScreen;
@@ -20,11 +22,16 @@ public class MainPanel extends JPanel {
     }
 
 
+    JButton darkModeButton = DarkModeButton.getDarkModeButtonInstance();
+    JButton lightModeButton = LightModeButton.getLightModeButtonInstance();
 
     private MainPanel() {
         this.setSize(700, 550);
         this.setLayout(null); // No layout manager
 
+        this.add(darkModeButton);
+        this.add(lightModeButton);
+        lightModeButton.setVisible(false);
         // We set the background color in the parent panel,
         // and set the other panels transparent. (this.setOpaque(false);)
         // This means we only have to change the background on one panel.

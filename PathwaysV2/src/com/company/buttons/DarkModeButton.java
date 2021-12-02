@@ -13,7 +13,7 @@ public class DarkModeButton extends JButton {
         this.setLocation(490, 400);
         this.setForeground(ColorModes.darkModeText);
         this.setVisible(true);
-        this.addActionListener((ActionEvent e) -> darkMode((JPanel) this.getParent()));
+        this.addActionListener((ActionEvent e) -> darkMode());
 
     }
 
@@ -24,8 +24,7 @@ public class DarkModeButton extends JButton {
     }
 
 
-    public void darkMode(JPanel currentPanel){
-        ColorModes.switchMode(currentPanel);
-
+    public void darkMode(){
+        ColorModes.switchMode();
     }
 }

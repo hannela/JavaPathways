@@ -18,7 +18,7 @@ public class HomeScreen extends JPanel {
     }
 
     JButton backButton = BackButton.getBackButtonInstance();
-    JButton setNewMessageButton = SetNewMessageButton.getSetNewMessageButtonInstance();
+    JButton setNewMessageButton = WriteNewMessageButton.getSetNewMessageButtonInstance();
     JButton lightModeButton = LightModeButton.getLightModeButtonInstance();
     JButton darkModeButton = DarkModeButton.getDarkModeButtonInstance();
     JButton displayHelpMessageButton = DisplayHelpMessageButton.getDisplayHelpMessageButtonInstance();
@@ -49,10 +49,11 @@ public class HomeScreen extends JPanel {
         this.add(backButton);
         BackButton.setBackButtonAction("TestExit");
 
-        this.add(lightModeButton);
-        lightModeButton.setVisible(false);
-
-        this.add(darkModeButton);
+//        this.add(lightModeButton);
+//        lightModeButton.setVisible(false);
+//
+//        this.add(darkModeButton);
+//        darkModeButton.setVisible(true);
 
         this.add(helpMessageLabel);
 

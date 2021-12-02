@@ -39,7 +39,7 @@ public class AddReminderScreen extends JPanel {
         this.add(backButton);
         this.add(addReminderTextField);
         this.add(saveReminderButton);
-        this.add(lightModeButton);
-        this.add(darkModeButton);
+//        this.add(lightModeButton);
+//        this.add(darkModeButton);
     }
 }

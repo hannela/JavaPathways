@@ -12,6 +12,12 @@ public class ScreenUtilities {
         }
     }
 
+    public static void setAllVisible(JPanel panelToClear) {
+        for (Component child : panelToClear.getComponents()) {
+            child.setVisible(true);
+        }
+    }
+
     // Not currently necessary - may delete later
     public static JButton setButtonDetails(JButton button, int locX, int locY, int sizeW, int sizeL, Boolean visible) {
         button.setLocation(locX, locY);

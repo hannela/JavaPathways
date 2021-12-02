@@ -1,9 +1,6 @@
 package com.company.screens;
 
-import com.company.buttons.BackButton;
-import com.company.buttons.DarkModeButton;
-import com.company.buttons.LightModeButton;
-import com.company.buttons.SaveHelpMessageButton;
+import com.company.buttons.*;
 import com.company.textfields.AddHelpMessageTextField;
 import com.company.utilities.ColorModes;
 import com.company.utilities.LabelFactory;
@@ -23,7 +20,7 @@ public class AddHelpMessageScreen extends JPanel {
     JLabel addHelpMessageInstructionsText;
     JTextField addHelpMessageTextField = AddHelpMessageTextField.getAddHelpMessageTextFieldInstance();
     JButton saveHelpMessageButton = SaveHelpMessageButton.getSaveHelpMessageButtonInstance();
-    JButton backButton = BackButton.getBackButtonInstance();
+    JButton backButton = BackButtonNewMessageToHomeScreen.getBackButtonNewMessageToHomeScreenInstance();
     JButton darkModeButton = DarkModeButton.getDarkModeButtonInstance();
     JButton lightModeButton = LightModeButton.getLightModeButtonInstance();
 
@@ -39,7 +36,7 @@ public class AddHelpMessageScreen extends JPanel {
         this.add(backButton);
         this.add(addHelpMessageTextField);
         this.add(saveHelpMessageButton);
-        this.add(lightModeButton);
-        this.add(darkModeButton);
+//        this.add(lightModeButton);
+//        this.add(darkModeButton);
     }
 }

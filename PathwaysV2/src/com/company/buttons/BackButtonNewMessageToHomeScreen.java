@@ -11,44 +11,40 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
 // Extends JButton tells the program that this is a JButton with a customized class name.
-public class BackButton extends JButton {
+public class BackButtonNewMessageToHomeScreen extends JButton {
 
     // Build the button in the constructor.
-    private BackButton() {
+    private BackButtonNewMessageToHomeScreen() {
         this.setText("<- Back");
         this.setSize(190, 30);
         this.setLocation(490, 450);
         this.setForeground(ColorModes.lightModeText);
-        // this.addActionListener((ActionEvent e) -> back());
+        this.addActionListener((ActionEvent e) -> returnToHome());
         this.setVisible(true);
     }
 
     // This creates an instance of the button.
-    private static final BackButton instance = new BackButton();
+    private static final BackButtonNewMessageToHomeScreen instance = new BackButtonNewMessageToHomeScreen();
 
     // The method to get an instance (the copy) of the button.
     // All instances point to the same copy of the button.
     // If you change the button on one screen, it will affect it on all screens.
     // Ex. if you setVisible(true), the button will remain visible on all screens until turned off.
-    public static BackButton getBackButtonInstance() {
+    public static BackButtonNewMessageToHomeScreen getBackButtonNewMessageToHomeScreenInstance() {
         return instance;
     }
 
-    public static void setBackButtonAction(String whichPageTheBackButtonIsOn) {
-        switch(whichPageTheBackButtonIsOn) {
-            case "HomeScreen":
-            break;
-//            case "TestChangeColor":
-//            break;
-            case "TestExit": setForComplicatedScreen();
-            break;
-            default: // do nothing
-                break;
-        }
-    }
 
     public static ActionListener returnToHomeScreen;
 
+    private void returnToHome(){
+        JPanel mainPanelInstance = MainPanel.getMainPanelInstance();
+        mainPanelInstance.remove(AddHelpMessageScreen.getAddHelpMessageScreenInstance());
+
+        mainPanelInstance.add(HomeScreen.getHomeScreenInstance());
+        mainPanelInstance.revalidate();
+        mainPanelInstance.repaint();
+    }
 
     static{
         returnToHomeScreen = new ActionListener() {

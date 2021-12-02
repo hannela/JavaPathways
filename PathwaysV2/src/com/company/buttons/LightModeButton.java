@@ -12,7 +12,7 @@ public class LightModeButton extends JButton {
         this.setLocation(490, 400);
         this.setForeground(ColorModes.lightModeText);
         this.setVisible(false);
-        this.addActionListener((ActionEvent e) -> lightMode((JPanel) this.getParent()));
+        this.addActionListener((ActionEvent e) -> lightMode());
     }
 
     private static LightModeButton instance = new LightModeButton();
@@ -21,7 +21,7 @@ public class LightModeButton extends JButton {
         return instance;
     }
 
-    public void lightMode(JPanel currentPanel){
-        ColorModes.switchMode(currentPanel);
+    public void lightMode(){
+        ColorModes.switchMode();
     }
 }
