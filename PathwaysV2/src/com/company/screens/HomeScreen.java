@@ -1,6 +1,7 @@
 package com.company.screens;
 import com.company.buttons.*;
 import com.company.labels.HelpMessageLabel;
+import com.company.labels.WelcomeMessageLabel;
 import com.company.utilities.ColorModes;
 import com.company.utilities.LabelFactory;
 
@@ -25,7 +26,7 @@ public class HomeScreen extends JPanel {
     JButton addReminderButton = AddReminderButton.getAddReminderButtonInstance();
     JButton showRemindersButton = ShowRemindersButton.getShowRemindersButtonInstance();
 
-    JLabel welcomeInstructionsText;
+    JLabel welcomeInstructionsText = WelcomeMessageLabel.getWelcomeMessageLabelInstance();
     JLabel clickHelpButtonInstructionsText; // becomes visible after help message is added and welcome instructions disappear
     JLabel helpMessageLabel = HelpMessageLabel.getHelpMessageLabelInstance();
 
@@ -34,9 +35,7 @@ public class HomeScreen extends JPanel {
         this.setLayout(null); // No layout manager
         this.setOpaque(false); // makes panel transparent
 
-        welcomeInstructionsText = LabelFactory.getLabel(600, 200, 50, 50, "<html><p>Welcome to Pathways!<br/> " +
-                "You can customize your 'Help' button message to fit your needs.<br/> " +
-                "Click the 'Write New Message' button to customize your HELP message.</p></html>", ColorModes.lightModeText);
+        this.add(welcomeInstructionsText);
         clickHelpButtonInstructionsText = LabelFactory.getLabel(190, 30, 290, 150, "Click 'Help' button!", ColorModes.lightModeText);
 
         this.add(clickHelpButtonInstructionsText);
