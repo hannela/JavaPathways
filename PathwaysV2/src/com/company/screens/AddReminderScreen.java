@@ -1,9 +1,6 @@
 package com.company.screens;
 
-import com.company.buttons.BackButton;
-import com.company.buttons.DarkModeButton;
-import com.company.buttons.LightModeButton;
-import com.company.buttons.SaveReminderButton;
+import com.company.buttons.*;
 import com.company.textfields.AddReminderTextField;
 import com.company.utilities.ColorModes;
 import com.company.utilities.LabelFactory;
@@ -23,7 +20,7 @@ public class AddReminderScreen extends JPanel {
     JLabel addReminderInstructionsText;
     JTextField addReminderTextField = AddReminderTextField.getAddReminderTextFieldInstance();
     JButton saveReminderButton = SaveReminderButton.getSaveReminderButtonInstance();
-    JButton backButton = BackButton.getBackButtonInstance();
+    JButton backButton = BackButtonNewReminderToHomeScreen.getBackButtonNewReminderToHomeScreenInstance();
     JButton darkModeButton = DarkModeButton.getDarkModeButtonInstance();
     JButton lightModeButton = LightModeButton.getLightModeButtonInstance();
 

@@ -1,5 +1,9 @@
 package com.company.buttons;
 
+import com.company.MainPanel;
+import com.company.screens.AddHelpMessageScreen;
+import com.company.screens.AddReminderScreen;
+import com.company.screens.HomeScreen;
 import com.company.utilities.ColorModes;
 
 import javax.swing.*;
@@ -26,5 +30,11 @@ public class AddReminderButton extends JButton {
     }
 
 
-    public void addReminder(){}
+    public void addReminder(){
+        JPanel mainPanelInstance = MainPanel.getMainPanelInstance();
+        mainPanelInstance.remove(HomeScreen.getHomeScreenInstance());
+
+        mainPanelInstance.add(AddReminderScreen.getAddReminderScreenInstance());
+        mainPanelInstance.revalidate();
+        mainPanelInstance.repaint();}
 }

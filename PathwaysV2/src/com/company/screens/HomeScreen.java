@@ -23,6 +23,7 @@ public class HomeScreen extends JPanel {
     JButton darkModeButton = DarkModeButton.getDarkModeButtonInstance();
     JButton displayHelpMessageButton = DisplayHelpMessageButton.getDisplayHelpMessageButtonInstance();
     JButton addReminderButton = AddReminderButton.getAddReminderButtonInstance();
+    JButton showRemindersButton = ShowRemindersButton.getShowRemindersButtonInstance();
 
     JLabel welcomeInstructionsText;
     JLabel clickHelpButtonInstructionsText; // becomes visible after help message is added and welcome instructions disappear
@@ -45,6 +46,7 @@ public class HomeScreen extends JPanel {
         this.add(setNewMessageButton);
         this.add(addReminderButton);
         this.add(displayHelpMessageButton);
+        this.add(showRemindersButton);
 
         this.add(backButton);
         BackButton.setBackButtonAction("TestExit");

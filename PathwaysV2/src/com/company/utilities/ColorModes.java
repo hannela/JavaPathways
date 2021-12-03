@@ -7,6 +7,7 @@ import com.company.buttons.LightModeButton;
 import com.company.screens.AddHelpMessageScreen;
 import com.company.screens.AddReminderScreen;
 import com.company.screens.HomeScreen;
+import com.company.screens.ShowRemindersScreen;
 
 import javax.swing.*;
 import java.awt.*;
@@ -44,6 +45,9 @@ public class ColorModes {
             for (Component child : AddHelpMessageScreen.getAddHelpMessageScreenInstance().getComponents()) {
                 child.setForeground(darkModeText);
             }
+            for (Component child : ShowRemindersScreen.getShowRemindersScreenInstance().getComponents()) {
+                child.setForeground(darkModeText);
+            }
         }
         else{
             usingLightMode = true;
@@ -55,6 +59,9 @@ public class ColorModes {
                 child.setForeground(lightModeText);
             }
             for (Component child : AddHelpMessageScreen.getAddHelpMessageScreenInstance().getComponents()) {
+                child.setForeground(lightModeText);
+            }
+            for (Component child : ShowRemindersScreen.getShowRemindersScreenInstance().getComponents()) {
                 child.setForeground(lightModeText);
             }
         }

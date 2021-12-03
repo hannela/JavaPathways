@@ -1,9 +1,14 @@
 package com.company.buttons;
 
+import com.company.textfields.AddReminderTextField;
 import com.company.utilities.ColorModes;
 
 import javax.swing.*;
 import java.awt.event.ActionEvent;
+import java.io.BufferedWriter;
+import java.io.File;
+import java.io.FileWriter;
+import java.io.IOException;
 
 // Extends JButton tells the program that this is a JButton with a customized class name.
 public class SaveReminderButton extends JButton {
@@ -31,13 +36,21 @@ public class SaveReminderButton extends JButton {
 
     // The method that the button implements
     public void saveReminder() {
-        // helpMessage = inputTF.getText(); < input text field
-        // inputTF.setVisible(false);
-        // instructions.setVisible(false); < label
-        //saveButton.setVisible(false);
-//        messageB.setVisible(true);
-//        messageB.setEnabled(true);
-//        newMessageB.setVisible(true);
-//        clickL.setVisible(true);
+       JTextField reminderTextField = AddReminderTextField.getAddReminderTextFieldInstance();
+        try{
+            String reminder = reminderTextField.getText();
+            File myObj = new File("reminders.txt");
+            myObj.createNewFile();
+            FileWriter fw = new FileWriter (myObj, true);
+            BufferedWriter bw = new BufferedWriter(fw); //Holds things in a buffer and feeds it in a rate that can be processed
+
+            bw.append(reminder + "\n");
+            bw.close();
+            fw.close();
+        } catch (IOException e){
+            System.out.println("An error occured :(");
+            e.printStackTrace();
+        }
+        reminderTextField.setText("");
     }
 }

@@ -32,5 +32,6 @@ public class SaveHelpMessageButton extends JButton {
     // The method that the button implements
     public void saveHelpMessage() {
         HelpMessageLabel.getHelpMessageLabelInstance().setText( AddHelpMessageTextField.getAddHelpMessageTextFieldInstance().getText());
+        AddHelpMessageTextField.getAddHelpMessageTextFieldInstance().setText("");
     }
 }
